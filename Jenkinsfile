@@ -7,7 +7,7 @@ pipeline {
     stage('Build Laravel 8 PHP') {	
       steps {	
 	      script {
-            sh 'docker build -t ravennaras/crud8laravel:0.1.$BUILD_NUMBER .'
+            sh 'echo Build Laravel 8 PHP'
           }		        	
         }	
     }
@@ -15,7 +15,7 @@ pipeline {
     stage('Publish Laravel 8 PHP') {	
 	    steps {
 	      script {
-            sh 'docker push ravennaras/crud8laravel:0.1.$BUILD_NUMBER'
+            sh 'echo Publish Laravel 8 PHP'
           }		
         }	      
     }
@@ -23,7 +23,7 @@ pipeline {
     stage('Deploy to K8s'){
         steps {
           script{
-
+            sh 'echo Deploy Laravel 8 PHP'
           }
         }
     }
