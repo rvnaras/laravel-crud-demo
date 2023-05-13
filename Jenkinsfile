@@ -6,7 +6,7 @@ pipeline {
 	      script {
             sh '''
             echo Build Laravel 8 PHP
-            docker build docker build -t ravennaras/crud8laravel:0.1.$BUILD_NUMBER . --network host
+            docker build -t ravennaras/crud8laravel:0.1.$BUILD_NUMBER . --network host
             '''
           }		        	
        }	
