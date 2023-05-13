@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: demo
-          image: ravennaras/crud8laravel:0.2
+          image: ravennaras/crud8laravel:0.1.6
           ports:
             - containerPort: 80
           resources:
