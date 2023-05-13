@@ -3,7 +3,7 @@ pipeline {
   options {	
     buildDiscarder(logRotator(numToKeepStr: '5'))	
   }		
-  
+  stages {
     stage('Build Laravel 8 PHP') {	
       steps {	
 	      script {
@@ -28,3 +28,4 @@ pipeline {
         }
     }
   }
+}
