@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: crud-ingress
+  name: mysql-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: www.crud.com
+  - host: db.crud.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: crud-laravel
+            name: mysql
             port:
-              number: 80
+              number: 3306
