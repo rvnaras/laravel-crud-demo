@@ -26,6 +26,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN php artisan key:generate
 
+RUN curl db.crud.com
+
 RUN php artisan migrate
 
 RUN php artisan make:controller ProductController --resource --model=Product
