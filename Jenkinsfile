@@ -18,7 +18,7 @@ pipeline {
             sh '''
             echo Publish Laravel 8 PHP
             docker push ravennaras/crud8laravel:0.1.$BUILD_NUMBER
-            ''''
+            '''
          }		
        }	      
     }
