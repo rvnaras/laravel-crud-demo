@@ -1,16 +1,13 @@
 pipeline {	
   agent any
-  environment {
-    dockerimagename = "ravennaras/crud8laravel"
-    dockerimage = ""
-    registryCredential = 'dockerhub'
-  }
   stages {
     stage('Build Laravel 8 PHP') {	
       steps {	
 	      script {
-            sh 'echo Build Laravel 8 PHP'
-            dockerimage = docker.build dockerimagename
+            sh '''
+            echo Build Laravel 8 PHP
+            docker build docker build -t ravennaras/crud8laravel:0.1.$BUILD_NUMBER . --network host
+            '''
           }		        	
        }	
     }
@@ -18,8 +15,10 @@ pipeline {
     stage('Publish Laravel 8 PHP') {	
 	    steps {
 	      script {
-            sh 'echo Publish Laravel 8 PHP'
-            docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {dockerImage.push("latest")}
+            sh '''
+            echo Publish Laravel 8 PHP
+            docker push ravennaras/crud8laravel:0.1.$BUILD_NUMBER
+            ''''
          }		
        }	      
     }
@@ -30,6 +29,6 @@ pipeline {
             sh 'echo Deploy Laravel 8 PHP'
           }
         }
-    }
-  }
+     }
+   }
 }
