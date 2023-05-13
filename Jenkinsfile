@@ -1,8 +1,5 @@
 pipeline {	
-  agent {label 'master'}	
-  options {	
-    buildDiscarder(logRotator(numToKeepStr: '5'))	
-  }		
+  agent any			
   stages {
     stage('Build Laravel 8 PHP') {	
       steps {	
